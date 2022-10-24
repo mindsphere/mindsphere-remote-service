@@ -21,9 +21,11 @@ To allow you a quick start on the device-side of your remote service application
 To use the MRS client on a Debian based system, download the respective client from your MRS app on MindSphere as shown in the documentation. Next, store the client on the device and then start the service. The following step-by-step guide will help you doing so.
 
 1. On your device, browse to directory where the MRS-Client .tar.gz file is located
-2. Expand the archive-file (=unpack)  
-   1. unzip via ```gunzip <your-client-download-file>.tar.gz```  
-   2. extract the .tar file using ```tar -xf <your-client-download-file>.tar```
+2. Expand the archive-file (=unzip and extract)  
+   1. unzip via  
+      ```gunzip <your-client-download-file>.tar.gz```  
+   2. extract the *.tar* file using  
+      ```tar -xf <your-client-download-file>.tar```
 3. Change access rights to the mrs-client using if needed
     ```sudo chmod +x mrs-client```
 4. Start the client using ```sudo ./mrs-client```
@@ -42,13 +44,17 @@ Please note that this mechanism is not formally supported but a community contri
 You should then find the client in the list of services of you system. 
 ![MRS running as service](/doc/MRS_client_as-Service.png)
 
-Do uninstall/**disable autostart**, simply run [MRS_autostart_uninstaller](/resources/uninstall.sh) from the directory where you previously executed the ```./setup.sh``` from. 
+To **check the service** locally on the device and see if the MRS-Service is still running, you can view the system-services running ```systemctl status mrs-client```
+
+To uninstall/**disable autostart**, simply run [MRS_autostart_uninstaller](/resources/uninstall.sh) from the directory where you previously executed the ```./setup.sh``` from. 
 
 ### Windows  
 ... to follow later
 
 ## Result
 Successfull installation/or running of the client can also be checked easily right on MindSphere using the online-status indicator in the MRS application. 
+
+Next you can add desired remote protocol applications (e.g. SSH/RDP/VNC/...) or utilize the file-share option for your remote device through the MindSphere app.
 ![MRS running as service](/doc/MRS_device_view_ONLINE.png)
 
 
