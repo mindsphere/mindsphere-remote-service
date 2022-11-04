@@ -21,14 +21,11 @@ To allow you a quick start on the device-side of your remote service application
 To use the MRS client on a Debian based system, download the respective client from your MRS app on MindSphere as shown in the documentation. Next, store the client on the device and then start the service. The following step-by-step guide will help you doing so.
 
 1. On your device, browse to directory where the MRS-Client .tar.gz file is located
-2. Expand the archive-file (=unzip and extract)  
-   1. unzip via  
-      ```gunzip <your-client-download-file>.tar.gz```  
-   2. extract the *.tar* file using  
-      ```tar -xf <your-client-download-file>.tar```
+2. Expand the archive-file (=untar)  
+    ```tar -xvzf <your-client-download-file>.tar.gz```  
 3. Change access rights to the mrs-client using if needed
     ```sudo chmod +x mrs-client```
-4. Start the client using ```sudo ./mrs-client```
+4. Start the client using ```./mrs-client```
 5. After the client is running, you need to accept the terms using ```y```(es), then the following screen should occur.  
    ![MRS device client running](/doc/MRS_running.png) 
 
@@ -39,12 +36,12 @@ Optional: **Enable autostart**
 To make the client run automatically, e.g. after a power-out of the device, a service needs to be registered in Debian for this. 
 Please note that this mechanism is not formally supported but a community contribution. For production usage, no liabiltiy is taken, neither support provided. Consulting of a skilled Debian developer is highly recommended and the guide below just serves as helper. 
 1) copy the [MRS_autostart_installer](/resources/setup.sh) to the directoy of the unzipped MRS device client. 
-2) change access rights with ```sudo chmod +x setup.sh``` and run the installer using ```./setup.sh```
+2) run the installer using ```sudo sh ./setup.sh```
 
 You should then find the client in the list of services of you system. 
 ![MRS running as service](/doc/MRS_client_as-Service.png)
 
-To **check the service** locally on the device and see if the MRS-Service is still running, you can view the system-services running ```systemctl status mrs-client```
+To **check the service** locally on the device and see if the MRS-Service is still running, you can view the system-services running ```sudo systemctl status mrs-client```
 
 To uninstall/**disable autostart**, simply run [MRS_autostart_uninstaller](/resources/uninstall.sh) from the directory where you previously executed the ```./setup.sh``` from. 
 
